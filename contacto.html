@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contacta con la Universidad Accesible">
+    <title>Contacto - Universidad Accesible</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header role="banner">
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/logo.webp" alt="Logo Universidad Accesible" width="150" height="60">
+            </div>
+            <nav role="navigation" aria-label="Navegación principal">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="programas.html">Programas</a></li>
+                    <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="cta-buttons">
+                <a href="contacto.html" class="btn btn-primary">Solicitar Información</a>
+                <a href="programas.html" class="btn btn-secondary">Ver Programas</a>
+            </div>
+        </div>
+    </header>
+
+    <main role="main">
+        <section class="hero">
+            <h1>Contáctanos</h1>
+            <p class="hero-subtitle">Estamos aquí para ayudarte</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Información de Contacto</h2>
+            <p>Nuestro equipo está disponible para responder tus preguntas y ayudarte en todo lo que necesites. Ya sea que estés interesado en nuestros programas académicos, necesites información sobre el proceso de admisión, o tengas alguna consulta general, estamos aquí para ayudarte.</p>
+            <p>Puedes contactarnos a través de cualquiera de los métodos que se muestran a continuación. Nuestro horario de atención es de lunes a viernes de 8:00 AM a 6:00 PM, y los sábados de 9:00 AM a 1:00 PM. Respondemos a todos los correos electrónicos en un plazo máximo de 48 horas.</p>
+            
+            <div class="image-container">
+                <img src="https://ftsydh.uanl.mx/wp-content/uploads/2022/08/1-9413.jpg" alt="Oficina de atención al estudiante con personal disponible" width="900" height="600">
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Formulario de Contacto</h2>
+            <p>Completa el siguiente formulario y nos pondremos en contacto contigo lo antes posible. Todos los campos marcados con asterisco (*) son obligatorios para procesar tu solicitud correctamente.</p>
+            <p>La información que proporciones será utilizada únicamente para responder a tu consulta y no será compartida con terceros. Respetamos tu privacidad y cumplimos con todas las regulaciones de protección de datos.</p>
+            
+            <form action="#" method="post" class="contact-form" aria-label="Formulario de contacto">
+                <div class="form-group">
+                    <label for="nombre">
+                        Nombre completo
+                        <span class="required" aria-label="campo obligatorio">*</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        id="nombre" 
+                        name="nombre" 
+                        required 
+                        aria-required="true"
+                        aria-describedby="nombre-error"
+                    >
+                    <span id="nombre-error" class="error-message" role="alert" aria-live="polite"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">
+                        Correo electrónico
+                        <span class="required" aria-label="campo obligatorio">*</span>
+                    </label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        required 
+                        aria-required="true"
+                        aria-describedby="email-error"
+                    >
+                    <span id="email-error" class="error-message" role="alert" aria-live="polite"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">
+                        Mensaje
+                        <span class="required" aria-label="campo obligatorio">*</span>
+                    </label>
+                    <textarea 
+                        id="mensaje" 
+                        name="mensaje" 
+                        rows="6" 
+                        required 
+                        aria-required="true"
+                        aria-describedby="mensaje-error"
+                    ></textarea>
+                    <span id="mensaje-error" class="error-message" role="alert" aria-live="polite"></span>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                </div>
+
+                <p class="form-note">
+                    <span class="required">*</span> Campos obligatorios
+                </p>
+            </form>
+        </section>
+
+        <section class="content-section">
+            <h2>Ubicación</h2>
+            <p>Nuestro campus principal está ubicado en el corazón de la ciudad, con fácil acceso mediante transporte público y privado. Contamos con estacionamiento para estudiantes y visitantes, así como con instalaciones accesibles para personas con movilidad reducida.</p>
+            <p>Si planeas visitarnos, te recomendamos que nos contactes con anticipación para coordinar tu visita y asegurarnos de que un miembro de nuestro equipo esté disponible para recibirte y mostrarte nuestras instalaciones.</p>
+            
+            <div class="image-container">
+                <img src="https://www.researchgate.net/publication/329961662/figure/fig2/AS:708624036933632@1545960544051/Figura-4-2-Ubicacion-de-la-Universidad-Autonoma-Metropolitana-Azcapotzalco-Fuente.ppm" alt="Mapa del campus universitario mostrando las diferentes edificaciones y áreas" width="900" height="600">
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Horarios de Atención</h2>
+            <p>Nuestras oficinas están abiertas durante los siguientes horarios para atenderte personalmente: Lunes a Viernes de 8:00 am - 6:00 pm Sabados de 9:00 am - 1:00 pm. También puedes contactarnos por teléfono o correo electrónico en cualquier momento, y te responderemos durante nuestro horario de atención.</p>
+            <p>Durante los períodos de inscripción y exámenes, extendemos nuestros horarios de atención para brindar mejor servicio a nuestros estudiantes y futuros estudiantes. Mantente al tanto de estos cambios a través de nuestro sitio web y redes sociales.</p>
+            
+            <div class="decorative-image" role="presentation" aria-hidden="true">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEwu6bxfgEtswsLOdelRPnmuafBaEAw617Tw&s" alt="" width="1000" height="200">
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>Dirección: Av. Universidad 123, Ciudad</p>
+                <p>Teléfono: (555) 123-4567</p>
+                <p>Email: info@universidadaccesible.edu</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="programas.html">Programas</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <ul>
+                    <li><a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                    <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+                    <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Universidad Accesible. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
+
