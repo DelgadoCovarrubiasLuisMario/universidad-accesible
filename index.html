@@ -15,13 +15,13 @@
             </div>
             <nav role="navigation" aria-label="Navegación principal">
                 <ul>
-                    <li><a href="index.html" aria-current="page">Inicio</a></li>
-                    <li><a href="programas.html">Programas</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="index.html" aria-current="page" style="background-color: green ; color: white;">Inicio</a></li>
+                    <li><a href="programas.html" style="background-color: green ; color: white;">Programas</a></li>
+                    <li><a href="contacto.html" style="background-color: green ; color: white;">Contacto</a></li>
                 </ul>
             </nav>
             <div class="cta-buttons">
-                <a href="contacto.html" class="btn btn-primary">Solicitar Información</a>
+                <a href="contacto.html" class="btn btn-secondary">Solicitar Información</a>
                 <a href="programas.html" class="btn btn-secondary">Ver Programas</a>
             </div>
         </div>
@@ -60,24 +60,9 @@
             <h2>Conoce Nuestra Universidad</h2>
             <p>En este video podrás conocer más sobre nuestras instalaciones, programas académicos y la experiencia estudiantil en nuestra universidad. El video incluye subtítulos y descripción de audio para garantizar la accesibilidad.</p>
             <p>Nuestro campus cuenta con instalaciones modernas, laboratorios equipados con tecnología de punta, bibliotecas con extensas colecciones y espacios deportivos para el bienestar integral de nuestros estudiantes.</p>
+
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/HDvuQmBhOtk?si=d_5fY2LgU9p_o1b5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             
-            <div class="video-container">
-                <div class="youtube-wrapper">
-                    <iframe 
-                        width="800" 
-                        height="450" 
-                        src="https://www.youtube.com/embed/fEQrvLV29kI?cc_load_policy=1&rel=0" 
-                        title="Video promocional de la universidad"
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        allowfullscreen
-                        aria-label="Video promocional de la universidad sobre instalaciones y programas académicos">
-                    </iframe>
-                </div>
-                <div class="video-description" aria-label="Descripción del video">
-                    <p>Este video muestra un recorrido por el campus universitario, incluyendo las aulas, laboratorios, biblioteca, áreas deportivas y espacios comunes. Se ven estudiantes interactuando en diferentes actividades académicas y sociales. El narrador explica los programas académicos disponibles y las oportunidades de desarrollo profesional.</p>
-                </div>
-            </div>
         </section>
 
         <section class="content-section">
@@ -120,6 +105,82 @@
             <p>&copy; 2024 Universidad Accesible. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const video = document.getElementById('campusVideo');
+            const audioDescription = document.getElementById('audioDescription');
+            const toggleButton = document.getElementById('toggleAd');
+
+            if (!video || !audioDescription || !toggleButton) {
+                return;
+            }
+
+            const syncAudioWithVideo = () => {
+                if (Math.abs(audioDescription.currentTime - video.currentTime) > 0.3) {
+                    audioDescription.currentTime = video.currentTime;
+                }
+            };
+
+            const startAudioDescription = () => {
+                audioDescription.currentTime = video.currentTime;
+                audioDescription.play().catch(() => {
+                    toggleButton.setAttribute('data-active', 'false');
+                    toggleButton.setAttribute('aria-pressed', 'false');
+                    toggleButton.textContent = 'Activar audio descriptivo';
+                });
+            };
+
+            toggleButton.addEventListener('click', () => {
+                const isActive = toggleButton.getAttribute('data-active') === 'true';
+
+                if (isActive) {
+                    toggleButton.setAttribute('data-active', 'false');
+                    toggleButton.setAttribute('aria-pressed', 'false');
+                    toggleButton.textContent = 'Activar audio descriptivo';
+                    audioDescription.pause();
+                    audioDescription.currentTime = 0;
+                } else {
+                    toggleButton.setAttribute('data-active', 'true');
+                    toggleButton.setAttribute('aria-pressed', 'true');
+                    toggleButton.textContent = 'Desactivar audio descriptivo';
+                    if (!video.paused) {
+                        startAudioDescription();
+                    }
+                }
+            });
+
+            video.addEventListener('play', () => {
+                if (toggleButton.getAttribute('data-active') === 'true') {
+                    startAudioDescription();
+                }
+            });
+
+            video.addEventListener('pause', () => {
+                audioDescription.pause();
+            });
+
+            video.addEventListener('seeked', () => {
+                if (toggleButton.getAttribute('data-active') === 'true') {
+                    audioDescription.currentTime = video.currentTime;
+                }
+            });
+
+            video.addEventListener('timeupdate', () => {
+                if (toggleButton.getAttribute('data-active') === 'true' && !audioDescription.paused) {
+                    syncAudioWithVideo();
+                }
+            });
+
+            video.addEventListener('ended', () => {
+                audioDescription.pause();
+                audioDescription.currentTime = 0;
+                toggleButton.setAttribute('data-active', 'false');
+                toggleButton.setAttribute('aria-pressed', 'false');
+                toggleButton.textContent = 'Activar audio descriptivo';
+            });
+        });
+    </script>
 </body>
 </html>
 
